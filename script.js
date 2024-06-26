@@ -120,3 +120,74 @@ btnAddNode.addEventListener("click", () => {
   ulNode.append(liNode)
 
 })
+
+
+// Otras cosas que podemos manipular del DOM
+
+
+const finalThoughtsSectionNode = document.querySelector("#final-thoughts")
+finalThoughtsSectionNode.addEventListener("click", () => {
+
+  console.log("clickando en section")
+  // finalThoughtsSectionNode.id = "patata";
+
+  // finalThoughtsSectionNode.className = "patata";
+
+  console.log(finalThoughtsSectionNode.className)
+  console.log(finalThoughtsSectionNode.classList)
+
+  // finalThoughtsSectionNode.classList.add("patata")
+  // finalThoughtsSectionNode.classList.remove("final-section")
+  finalThoughtsSectionNode.classList.toggle("patata") // añadir si no existe y remover si ya existe
+
+})
+
+
+// Como modificar directamente los estilos de un nodo.
+
+const lastTitleNode = document.querySelector("#event-title")
+lastTitleNode.addEventListener("click", () => {
+
+  lastTitleNode.innerText = "clickando";
+  console.log(lastTitleNode.style)
+  lastTitleNode.style.color = "blue";
+  lastTitleNode.style.backgroundColor = "red";
+  lastTitleNode.style.padding = "20px";
+  lastTitleNode.style.fontWeight = "bold";
+  lastTitleNode.style.textDecoration = "underline";
+
+})
+
+
+let isPageInDarkMode = false;
+
+const themeBtnNode = document.querySelector("#styles-btn")
+themeBtnNode.addEventListener("click", () => {
+
+  if (isPageInDarkMode) {
+    const bodyNode = document.querySelector("body")
+    bodyNode.style.backgroundColor = "white";
+    bodyNode.style.color = "black";
+    isPageInDarkMode = false;
+  } else {
+    const bodyNode = document.querySelector("body")
+    bodyNode.style.backgroundColor = "rgb(25,25,25)";
+    bodyNode.style.color = "white";
+    isPageInDarkMode = true;
+  }
+
+})
+
+const crazyBtn = document.querySelector("#crazy-btn")
+crazyBtn.addEventListener("click", () => {
+  console.log("clickando")
+
+  // let newTop = 100;
+  // let newLeft = 200;
+  let newTop = Math.floor(Math.random() * 400);
+  let newLeft = Math.floor(Math.random() * 400);
+
+  crazyBtn.style.top = `${newTop}px`
+  crazyBtn.style.left = `${newLeft}px`
+
+})
